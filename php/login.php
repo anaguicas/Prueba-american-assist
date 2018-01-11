@@ -1,6 +1,10 @@
 <html><meta charset="utf-8">
 <head>
-    <link rel="stylesheet" href="estilos.css" type="text/css" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../media/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../media/css/estilos.css">
+    <link rel="stylesheet" href="../media/css/bootstrap.min.css">
+    <script src="../media/js/bootstrap.min.js"></script>
 </head> 
 <?php
 
@@ -16,14 +20,15 @@ if(!empty($_POST['usuario']) && !empty($_POST['password'])){
     
     if($cue['user_name']==$aux && $cue['contrasena']==$_POST['password']){
         session_start();
+        $_SESSION['username'] = $aux;
         include("../views/lista_libros.php");
 
     }else{
         echo "<script text/javascript>alert('Usted no tiene una cuenta, por favor cree una');window.location='index.php';</script>";
          }
 }else{
-    include("../index.html");
-    echo "<script text/javascript>alert('Vuelva a ingresar los datos');window.location='index.php';</script>";
+    include("../index.php");
+    echo "<script text/javascript>alert('Vuelva a ingresar los datos');window.location='../index.php';</script>";
 }
 ?>
 </html>
